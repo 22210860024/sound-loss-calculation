@@ -24,5 +24,17 @@ DASA文件：【1 255 1 1】
 12个声场评价指标；
 2个数据覆盖率指标。
 'PSNR','SSE','Uniformity','MaxAE','MSE','Correlation','Efficiency','MAE','SSIM','NRMSE', 'EntropyDiff','RMSE','Coverage','ROICoverage'
-1. MSE：均方误差
-2. 2. MAE：平均绝对误差 与MSE相比，MAE对极大误差不那么敏感
+1. MSE：均方误差 \(\frac1{K_v}\sum(\frac{p-r}{S})^2\) 越小越好 
+2. MAE：平均绝对误差 	\(\frac1{K_v}\sum|\frac{p-r}{S}|\)与MSE相比，MAE对极大误差不那么敏感 越小越好
+3. RMSE：\(\sqrt{MSE}\)	均方根误差	越小越好
+4. SSE:	\(\sum(\frac{p-r}{S})^2\)	总平方误差	越小越好
+5. MaxAE	\(\max|\frac{p-r}{S}|\)	最大局部误差	越小越好
+6. PSNR	\(10\log_{10}(1/MSE)\)	峰值信噪比	越大越好
+7. NRMSE	\(\frac{RMSE}{r_{\max}-r_{\min}}\)	相对动态范围误差	越小越好
+8. Correlation	皮尔逊相关系数	变化趋势相关性	越接近1越好
+9. SSIM	结构相似性公式	图像结构相似程度	越接近1越好
+10. Uniformity	\(1-\frac{\sigma}{\mu}\)	目标区域均匀性	越大越好
+11. Efficiency	\(\frac{\sum_{\Omega}P_n^2}{\sum_Mp_n^2}\)	目标区域平方幅值集中度	越大越好
+12. EntropyDiff	\(|H_R-H_P|\)	灰度统计差异	越小越好
+13. Coverage	\(\frac{K_v}{MN}\)	整体有效覆盖率	越大越好
+14. ROICoverage	\(\frac{|ROI\cap M|}{|ROI|}\)	目标区域有效覆盖率	越大越好
